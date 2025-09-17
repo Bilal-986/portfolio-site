@@ -1,0 +1,1 @@
+A modern todo application with drag-and-drop functionality and real-time updates. Built with React and Django REST API. Features include task categorization, due dates, priority levels, and collaborative workspaces.

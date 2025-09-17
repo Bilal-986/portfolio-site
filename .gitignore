@@ -1,0 +1,28 @@
+# Development files
+serve.py
+add-project.py
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Environment files
+.env
+.env.local
+.env.production
+
+# Node modules (if any)
+node_modules/
+
+# Build files
+dist/
+build/

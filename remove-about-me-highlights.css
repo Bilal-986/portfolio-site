@@ -1,0 +1,21 @@
+/* Remove all highlights from About Me section */
+.banner-right-content .about-me-description span,
+.banner-right-content .para span,
+.banner-right-content span {
+    background: none !important;
+    background-color: transparent !important;
+    color: inherit !important;
+    font-weight: inherit !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* Ensure About Me text is clean */
+.banner-right-content .about-me-description {
+    color: #ddd !important;
+    font-size: 18px !important;
+    line-height: 1.7 !important;
+}

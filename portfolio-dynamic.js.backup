@@ -1,0 +1,412 @@
+// Professional Portfolio System - Complete Solution
+class DynamicPortfolio {
+    constructor() {
+        this.latestProjects = [];
+        this.allProjects = [];
+        this.currentModalProject = null;
+        this.currentImageIndex = 0;
+        this.showingAllProjects = false;
+        this.init();
+    }
+
+    async init() {
+        try {
+            this.loadCorrectProjects();
+            this.renderLatestProjects();
+            this.setupEventListeners();
+            console.log('Professional Portfolio loaded successfully');
+        } catch (error) {
+            console.error('Error loading portfolio:', error);
+            this.showFallbackContent();
+        }
+    }
+
+    loadCorrectProjects() {
+        // Latest projects (4 projects from latest-portfolio folder) - CORRECT URLs
+        this.latestProjects = [
+            {
+                title: 'Task Management',
+                folder: 'task-management',
+                images: [
+                    { filename: 'first-image.png', path: 'assets/images/latest-portfolio/task-management/first-image.png' },
+                    { filename: 'second-image.png', path: 'assets/images/latest-portfolio/task-management/second-image.png' },
+                    { filename: 'third-image.png', path: 'assets/images/latest-portfolio/task-management/third-image.png' },
+                    { filename: 'fourth-image.png', path: 'assets/images/latest-portfolio/task-management/fourth-image.png' },
+                    { filename: 'fifth-image.png', path: 'assets/images/latest-portfolio/task-management/fifth-image.png' }
+                ],
+                github_url: 'https://github.com/Bilal-986/TaskManagementApp',
+                description: 'A comprehensive task management application built with Django and React. Features include user authentication, project management, task assignment, progress tracking, and real-time notifications. The application provides a clean and intuitive interface for teams to collaborate effectively on projects.'
+            },
+            {
+                title: 'Job Portal',
+                folder: 'job-portal',
+                images: [
+                    { filename: 'first-image.png', path: 'assets/images/latest-portfolio/job-portal/first-image.png' },
+                    { filename: 'second-image.png', path: 'assets/images/latest-portfolio/job-portal/second-image.png' },
+                    { filename: 'third-image.png', path: 'assets/images/latest-portfolio/job-portal/third-image.png' },
+                    { filename: 'fourth-image.png', path: 'assets/images/latest-portfolio/job-portal/fourth-image.png' },
+                    { filename: 'fifth-image.png', path: 'assets/images/latest-portfolio/job-portal/fifth-image.png' }
+                ],
+                github_url: 'https://github.com/Bilal-986/JobPortal',
+                description: 'A full-featured job portal with advanced search and filtering capabilities. Built with Django REST API and React frontend. Includes features like job posting, candidate profiles, application tracking, and employer dashboard. The platform connects job seekers with employers efficiently.'
+            },
+            {
+                title: 'Inventory Application',
+                folder: 'inventory-application',
+                images: [
+                    { filename: 'first-image.png', path: 'assets/images/latest-portfolio/inventory-application/first-image.png' },
+                    { filename: 'second-image.png', path: 'assets/images/latest-portfolio/inventory-application/second-image.png' },
+                    { filename: 'third-image.png', path: 'assets/images/latest-portfolio/inventory-application/third-image.png' },
+                    { filename: 'fourth-image.png', path: 'assets/images/latest-portfolio/inventory-application/fourth-image.png' }
+                ],
+                github_url: 'https://github.com/Bilal-986/inventory-app',
+                description: 'An inventory management system for tracking products and stock levels. Built with Django and includes features like product catalog, stock tracking, supplier management, and reporting. The system helps businesses maintain optimal inventory levels and reduce costs.'
+            },
+            {
+                title: 'Cyber Forge',
+                folder: 'cyber-forge',
+                images: [
+                    { filename: 'first-image.png', path: 'assets/images/projects/cyber-forge/first-image.png' },
+                    { filename: 'second-image.png', path: 'assets/images/projects/cyber-forge/second-image.png' },
+                    { filename: 'third-image.png', path: 'assets/images/projects/cyber-forge/third-image.png' },
+                    { filename: 'fourth-image.png', path: 'assets/images/projects/cyber-forge/fourth-image.png' },
+                    { filename: 'fifth-image.png', path: 'assets/images/projects/cyber-forge/fifth-image.png' },
+                    { filename: 'sixth-image.png', path: 'assets/images/projects/cyber-forge/sixth-image.png' }
+                ],
+                github_url: 'https://github.com/Bilal-986/NetworkScanner',
+                description: 'A cybersecurity training platform with interactive modules and assessments. Built with Django and React, featuring hands-on labs, progress tracking, and certification paths. The platform helps professionals develop cybersecurity skills through practical exercises and real-world scenarios.'
+            }
+        ];
+
+        // All projects (including additional ones from projects folder) - CORRECT URLs
+        this.allProjects = [
+            ...this.latestProjects,
+            {
+                title: 'Todo App',
+                folder: 'todo',
+                images: [
+                    { filename: 'first-image.png', path: 'assets/images/projects/todo/first-image.png' },
+                    { filename: 'second-image.png', path: 'assets/images/projects/todo/second-image.png' },
+                    { filename: 'third-image.png', path: 'assets/images/projects/todo/third-image.png' }
+                ],
+                github_url: 'https://github.com/Bilal-986/Todo-App',
+                description: 'A modern todo application with drag-and-drop functionality and real-time updates. Built with React and Django REST API. Features include task categorization, due dates, priority levels, and collaborative workspaces.'
+            },
+            {
+                title: 'Sharing Application',
+                folder: 'sharing-application',
+                images: [
+                    { filename: 'first-image.png', path: 'assets/images/projects/sharing-application/first-image.png' },
+                    { filename: 'second-image.png', path: 'assets/images/projects/sharing-application/second-image.png' }
+                ],
+                github_url: 'https://github.com/Bilal-986/ShareApplication',
+                description: 'A file sharing application with secure upload and download capabilities. Built with modern web technologies for efficient file management and sharing.'
+            },
+            {
+                title: 'Test Cards',
+                folder: 'test-cards',
+                images: [
+                    { filename: 'first-image.png', path: 'assets/images/projects/test-cards/first-image.png' },
+                    { filename: 'second-image.png', path: 'assets/images/projects/test-cards/second-image.png' }
+                ],
+                github_url: 'https://github.com/Bilal-986/TestCards',
+                description: 'An interactive testing application with card-based interface for quizzes and assessments. Built with modern web technologies for engaging user experience.'
+            },
+            {
+                title: 'Video Downloader',
+                folder: 'video-downloader',
+                images: [
+                    { filename: 'first-image.png', path: 'assets/images/projects/video-downloader/first-image.png' },
+                    { filename: 'second-image.png', path: 'assets/images/projects/video-downloader/second-image.png' },
+                    { filename: 'third-image.png', path: 'assets/images/projects/video-downloader/third-image.png' }
+                ],
+                github_url: 'https://github.com/Bilal-986/Video-Downloader',
+                description: 'A video downloading application with support for multiple platforms and formats. Built with Python and modern web technologies for efficient video processing.'
+            },
+            {
+                title: 'Secure Password',
+                folder: 'secure-password',
+                images: [
+                    { filename: 'first-image.png', path: 'assets/images/projects/secure-password/first-image.png' },
+                    { filename: 'second-image.png', path: 'assets/images/projects/secure-password/second-image.png' },
+                    { filename: 'third-image.png', path: 'assets/images/projects/secure-password/third-image.png' }
+                ],
+                github_url: 'https://github.com/Bilal-986/Secure-Password',
+                description: 'A secure password management application with encryption and secure storage. Built with modern security practices for protecting user credentials.'
+            }
+        ];
+    }
+
+    renderLatestProjects() {
+        const container = document.getElementById('dynamic-portfolio-container');
+        if (!container) return;
+
+        container.innerHTML = '';
+
+        // Render latest projects
+        this.latestProjects.forEach((project, index) => {
+            const projectCard = this.createProjectCard(project, index);
+            container.appendChild(projectCard);
+        });
+
+        // Add beautiful Show More button
+        this.addBeautifulShowMoreButton();
+    }
+
+    createProjectCard(project, index) {
+        const col = document.createElement('div');
+        col.className = 'col-lg-6 col-md-6 col-sm-6 mb-4';
+        
+        col.innerHTML = `
+            <div class="portfolio-card-enhanced tmp-scroll-trigger tmp-fade-in animation-order-${index + 1} tmp-link-animation">
+                <div class="portfolio-card-img-container">
+                    <img src="${project.images[0].path}" alt="${project.title}" class="portfolio-card-img" data-project='${JSON.stringify(project)}'>
+                    <div class="portfolio-card-overlay">
+                        <div class="overlay-content">
+                            <div class="overlay-icon">
+                                <i class="fa-light fa-images"></i>
+                            </div>
+                            <h3 class="overlay-title">View Gallery</h3>
+                            <p class="overlay-subtitle">Click to explore all ${project.images.length} images</p>
+                            <button class="overlay-btn view-gallery-btn" data-project='${JSON.stringify(project)}'>
+                                <i class="fa-light fa-eye"></i>
+                                <span>Explore Gallery</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-card-content">
+                    <h4 class="portfolio-title">
+                        <a href="#" class="view-gallery-btn" data-project='${JSON.stringify(project)}'>${project.title}</a>
+                    </h4>
+                    <p class="portfolio-description">${project.description.substring(0, 100)}...</p>
+                    <div class="portfolio-actions">
+                        <button class="portfolio-action-btn primary-btn view-gallery-btn" data-project='${JSON.stringify(project)}'>
+                            <i class="fa-light fa-images"></i>
+                            View Gallery (${project.images.length})
+                        </button>
+                        ${project.github_url ? `
+                        <a href="${project.github_url}" target="_blank" class="portfolio-action-btn secondary-btn">
+                            <i class="fab fa-github"></i>
+                            View Code
+                        </a>
+                        ` : ''}
+                    </div>
+                </div>
+            </div>
+        `;
+
+        return col;
+    }
+
+    addBeautifulShowMoreButton() {
+        const container = document.getElementById('dynamic-portfolio-container');
+        if (!container) return;
+
+        const buttonRow = document.createElement('div');
+        buttonRow.className = 'col-12 text-center mt-5';
+        buttonRow.innerHTML = `
+            <div class="show-more-container">
+                <button class="show-more-projects-btn" id="show-more-projects-btn">
+                    <div class="btn-content">
+                        <div class="btn-icon">
+                            <i class="fa-light fa-arrow-down"></i>
+                        </div>
+                        <div class="btn-text">
+                            <span class="btn-title">Show More Projects</span>
+                            <span class="btn-subtitle">Discover ${this.allProjects.length - this.latestProjects.length} additional projects</span>
+                        </div>
+                        <div class="btn-arrow">
+                            <i class="fa-light fa-chevron-right"></i>
+                        </div>
+                    </div>
+                    <div class="btn-shine"></div>
+                </button>
+            </div>
+        `;
+
+        container.appendChild(buttonRow);
+    }
+
+    showAllProjects() {
+        const container = document.getElementById('dynamic-portfolio-container');
+        if (!container) return;
+
+        // Remove the show more button
+        const showMoreBtn = document.getElementById('show-more-projects-btn');
+        if (showMoreBtn) {
+            showMoreBtn.parentElement.parentElement.remove();
+        }
+
+        // Add all remaining projects
+        const remainingProjects = this.allProjects.slice(this.latestProjects.length);
+        remainingProjects.forEach((project, index) => {
+            const projectCard = this.createProjectCard(project, this.latestProjects.length + index);
+            container.appendChild(projectCard);
+        });
+
+        this.showingAllProjects = true;
+    }
+
+    setupEventListeners() {
+        // Project image and gallery button events
+        document.addEventListener('click', (e) => {
+            if (e.target.closest('.view-gallery-btn')) {
+                e.preventDefault();
+                const projectData = JSON.parse(e.target.closest('.view-gallery-btn').dataset.project);
+                this.showImageGallery(projectData);
+            }
+        });
+
+        // Show More Projects button
+        document.addEventListener('click', (e) => {
+            if (e.target.closest('#show-more-projects-btn')) {
+                e.preventDefault();
+                this.showAllProjects();
+            }
+        });
+
+        // Modal close events
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('gallery-modal-overlay') || e.target.classList.contains('gallery-close')) {
+                this.closeImageGallery();
+            }
+        });
+
+        // Keyboard events
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                this.closeImageGallery();
+            } else if (e.key === 'ArrowLeft') {
+                this.prevImage();
+            } else if (e.key === 'ArrowRight') {
+                this.nextImage();
+            }
+        });
+    }
+
+    showImageGallery(project) {
+        this.currentModalProject = project;
+        this.currentImageIndex = 0;
+        
+        const modal = document.createElement('div');
+        modal.className = 'gallery-modal-overlay';
+        modal.innerHTML = `
+            <div class="gallery-modal">
+                <div class="gallery-header">
+                    <h2 class="gallery-title">${project.title}</h2>
+                    <button class="gallery-close">
+                        <i class="fa-light fa-times"></i>
+                    </button>
+                </div>
+                <div class="gallery-content">
+                    <div class="gallery-description">
+                        <p>${project.description}</p>
+                    </div>
+                    <div class="gallery-main">
+                        <button class="gallery-nav-btn prev-btn" onclick="portfolio.prevImage()">
+                            <i class="fa-light fa-chevron-left"></i>
+                        </button>
+                        <div class="gallery-image-container">
+                            <img src="${project.images[0].path}" alt="${project.title}" class="gallery-main-image">
+                        </div>
+                        <button class="gallery-nav-btn next-btn" onclick="portfolio.nextImage()">
+                            <i class="fa-light fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <div class="gallery-thumbnails">
+                        ${project.images.map((image, index) => `
+                            <div class="gallery-thumbnail ${index === 0 ? 'active' : ''}" data-index="${index}">
+                                <img src="${image.path}" alt="${project.title} - Image ${index + 1}">
+                            </div>
+                        `).join('')}
+                    </div>
+                    <div class="gallery-info">
+                        <span class="gallery-counter">1 / ${project.images.length}</span>
+                        ${project.github_url ? `
+                        <a href="${project.github_url}" target="_blank" class="gallery-github-btn">
+                            <i class="fab fa-github"></i>
+                            View Code
+                        </a>
+                        ` : ''}
+                    </div>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(modal);
+        document.body.style.overflow = 'hidden';
+
+        // Add thumbnail click events
+        modal.querySelectorAll('.gallery-thumbnail').forEach((thumb, index) => {
+            thumb.addEventListener('click', () => {
+                this.currentImageIndex = index;
+                this.updateGalleryDisplay();
+            });
+        });
+    }
+
+    closeImageGallery() {
+        const modal = document.querySelector('.gallery-modal-overlay');
+        if (modal) {
+            modal.remove();
+            document.body.style.overflow = '';
+        }
+        this.currentModalProject = null;
+        this.currentImageIndex = 0;
+    }
+
+    prevImage() {
+        if (!this.currentModalProject) return;
+        
+        this.currentImageIndex = (this.currentImageIndex - 1 + this.currentModalProject.images.length) % this.currentModalProject.images.length;
+        this.updateGalleryDisplay();
+    }
+
+    nextImage() {
+        if (!this.currentModalProject) return;
+        
+        this.currentImageIndex = (this.currentImageIndex + 1) % this.currentModalProject.images.length;
+        this.updateGalleryDisplay();
+    }
+
+    updateGalleryDisplay() {
+        if (!this.currentModalProject) return;
+
+        const mainImage = document.querySelector('.gallery-main-image');
+        const counter = document.querySelector('.gallery-counter');
+        const thumbnails = document.querySelectorAll('.gallery-thumbnail');
+        
+        if (mainImage) {
+            mainImage.src = this.currentModalProject.images[this.currentImageIndex].path;
+        }
+        
+        if (counter) {
+            counter.textContent = `${this.currentImageIndex + 1} / ${this.currentModalProject.images.length}`;
+        }
+        
+        thumbnails.forEach((thumb, index) => {
+            thumb.classList.toggle('active', index === this.currentImageIndex);
+        });
+    }
+
+    showFallbackContent() {
+        const container = document.getElementById('dynamic-portfolio-container');
+        if (!container) return;
+
+        container.innerHTML = `
+            <div class="col-12 text-center">
+                <div class="portfolio-loading">
+                    <i class="fa-light fa-spinner fa-spin"></i>
+                    <h3>Loading Portfolio...</h3>
+                    <p>Please wait while we load the portfolio content.</p>
+                </div>
+            </div>
+        `;
+    }
+}
+
+// Initialize the professional portfolio when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    window.portfolio = new DynamicPortfolio();
+});

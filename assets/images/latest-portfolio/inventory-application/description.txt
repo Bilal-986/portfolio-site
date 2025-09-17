@@ -1,0 +1,1 @@
+An inventory management system for tracking products and stock levels. Built with Django and includes features like product catalog, stock tracking, supplier management, and reporting. The system helps businesses maintain optimal inventory levels and reduce costs.

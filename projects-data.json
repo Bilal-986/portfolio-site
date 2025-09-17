@@ -1,0 +1,202 @@
+{
+  "latest_projects": [
+    {
+      "title": "Cyber Forge",
+      "folder": "cyber-forge",
+      "images": [
+        {
+          "filename": "first-image.png",
+          "path": "assets/images/latest-portfolio/cyber-forge/first-image.png"
+        },
+        {
+          "filename": "second-image.png",
+          "path": "assets/images/latest-portfolio/cyber-forge/second-image.png"
+        },
+        {
+          "filename": "third-image.png",
+          "path": "assets/images/latest-portfolio/cyber-forge/third-image.png"
+        },
+        {
+          "filename": "fourth-image.png",
+          "path": "assets/images/latest-portfolio/cyber-forge/fourth-image.png"
+        },
+        {
+          "filename": "fifth-image.png",
+          "path": "assets/images/latest-portfolio/cyber-forge/fifth-image.png"
+        },
+        {
+          "filename": "sixth-image.png",
+          "path": "assets/images/latest-portfolio/cyber-forge/sixth-image.png"
+        }
+      ],
+      "github_url": "https://github.com/Bilal-986/NetworkScanner",
+      "description": "A cybersecurity training platform with interactive modules and assessments. Built with Django and React, featuring hands-on labs, progress tracking, and certification paths. The platform helps professionals develop cybersecurity skills through practical exercises and real-world scenarios."
+    },
+    {
+      "title": "Inventory Application",
+      "folder": "inventory-application",
+      "images": [
+        {
+          "filename": "first-image.png",
+          "path": "assets/images/latest-portfolio/inventory-application/first-image.png"
+        }
+      ],
+      "github_url": "https://github.com/Bilal-986/inventory-app",
+      "description": "An inventory management system for tracking products and stock levels. Built with Django and includes features like product catalog, stock tracking, supplier management, and reporting. The system helps businesses maintain optimal inventory levels and reduce costs."
+    },
+    {
+      "title": "Job Portal",
+      "folder": "job-portal",
+      "images": [
+        {
+          "filename": "first-image.png",
+          "path": "assets/images/latest-portfolio/job-portal/first-image.png"
+        }
+      ],
+      "github_url": "https://github.com/Bilal-986/JobPortal",
+      "description": "A full-featured job portal with advanced search and filtering capabilities. Built with Django REST API and React frontend. Includes features like job posting, candidate profiles, application tracking, and employer dashboard. The platform connects job seekers with employers efficiently."
+    },
+    {
+      "title": "Task Management",
+      "folder": "task-management",
+      "images": [
+        {
+          "filename": "first-image.png",
+          "path": "assets/images/latest-portfolio/task-management/first-image.png"
+        }
+      ],
+      "github_url": "https://github.com/Bilal-986/TaskManagementApp",
+      "description": "A comprehensive task management application built with Django and React. Features include user authentication, project management, task assignment, progress tracking, and real-time notifications. The application provides a clean and intuitive interface for teams to collaborate effectively on projects."
+    }
+  ],
+  "all_projects": [
+    {
+      "title": "Cyber Forge",
+      "folder": "cyber-forge",
+      "images": [
+        {
+          "filename": "first-image.png",
+          "path": "assets/images/latest-portfolio/cyber-forge/first-image.png"
+        },
+        {
+          "filename": "second-image.png",
+          "path": "assets/images/latest-portfolio/cyber-forge/second-image.png"
+        },
+        {
+          "filename": "third-image.png",
+          "path": "assets/images/latest-portfolio/cyber-forge/third-image.png"
+        },
+        {
+          "filename": "fourth-image.png",
+          "path": "assets/images/latest-portfolio/cyber-forge/fourth-image.png"
+        },
+        {
+          "filename": "fifth-image.png",
+          "path": "assets/images/latest-portfolio/cyber-forge/fifth-image.png"
+        },
+        {
+          "filename": "sixth-image.png",
+          "path": "assets/images/latest-portfolio/cyber-forge/sixth-image.png"
+        }
+      ],
+      "github_url": "https://github.com/Bilal-986/NetworkScanner",
+      "description": "A cybersecurity training platform with interactive modules and assessments. Built with Django and React, featuring hands-on labs, progress tracking, and certification paths. The platform helps professionals develop cybersecurity skills through practical exercises and real-world scenarios."
+    },
+    {
+      "title": "Inventory Application",
+      "folder": "inventory-application",
+      "images": [
+        {
+          "filename": "first-image.png",
+          "path": "assets/images/latest-portfolio/inventory-application/first-image.png"
+        }
+      ],
+      "github_url": "https://github.com/Bilal-986/inventory-app",
+      "description": "An inventory management system for tracking products and stock levels. Built with Django and includes features like product catalog, stock tracking, supplier management, and reporting. The system helps businesses maintain optimal inventory levels and reduce costs."
+    },
+    {
+      "title": "Job Portal",
+      "folder": "job-portal",
+      "images": [
+        {
+          "filename": "first-image.png",
+          "path": "assets/images/latest-portfolio/job-portal/first-image.png"
+        }
+      ],
+      "github_url": "https://github.com/Bilal-986/JobPortal",
+      "description": "A full-featured job portal with advanced search and filtering capabilities. Built with Django REST API and React frontend. Includes features like job posting, candidate profiles, application tracking, and employer dashboard. The platform connects job seekers with employers efficiently."
+    },
+    {
+      "title": "Task Management",
+      "folder": "task-management",
+      "images": [
+        {
+          "filename": "first-image.png",
+          "path": "assets/images/latest-portfolio/task-management/first-image.png"
+        }
+      ],
+      "github_url": "https://github.com/Bilal-986/TaskManagementApp",
+      "description": "A comprehensive task management application built with Django and React. Features include user authentication, project management, task assignment, progress tracking, and real-time notifications. The application provides a clean and intuitive interface for teams to collaborate effectively on projects."
+    },
+    {
+      "title": "Secure Password",
+      "folder": "secure-password",
+      "images": [
+        {
+          "filename": "first-image.png",
+          "path": "assets/images/projects/secure-password/first-image.png"
+        }
+      ],
+      "github_url": "https://github.com/Bilal-986/secure-password",
+      "description": "A secure password management application with encryption and secure storage features."
+    },
+    {
+      "title": "Sharing Application",
+      "folder": "sharing-application",
+      "images": [
+        {
+          "filename": "first-image.png",
+          "path": "assets/images/projects/sharing-application/first-image.png"
+        }
+      ],
+      "github_url": "https://github.com/Bilal-986/sharing-application",
+      "description": "A file sharing application with secure upload and download capabilities."
+    },
+    {
+      "title": "Test Cards",
+      "folder": "test-cards",
+      "images": [
+        {
+          "filename": "first-image.png",
+          "path": "assets/images/projects/test-cards/first-image.png"
+        }
+      ],
+      "github_url": "https://github.com/Bilal-986/test-cards",
+      "description": "A testing application with interactive card-based interface."
+    },
+    {
+      "title": "Todo",
+      "folder": "todo",
+      "images": [
+        {
+          "filename": "first-image.png",
+          "path": "assets/images/projects/todo/first-image.png"
+        }
+      ],
+      "github_url": "https://github.com/Bilal-986/todo",
+      "description": "A simple and efficient todo application with task management features."
+    },
+    {
+      "title": "Video Downloader",
+      "folder": "video-downloader",
+      "images": [
+        {
+          "filename": "first-image.png",
+          "path": "assets/images/projects/video-downloader/first-image.png"
+        }
+      ],
+      "github_url": "https://github.com/Bilal-986/video-downloader",
+      "description": "A video downloader application with support for multiple platforms."
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+A cybersecurity training platform with interactive modules and assessments. Built with Django and React, featuring hands-on labs, progress tracking, and certification paths. The platform helps professionals develop cybersecurity skills through practical exercises and real-world scenarios.

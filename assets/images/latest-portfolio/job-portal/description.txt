@@ -1,0 +1,1 @@
+A full-featured job portal with advanced search and filtering capabilities. Built with Django REST API and React frontend. Includes features like job posting, candidate profiles, application tracking, and employer dashboard. The platform connects job seekers with employers efficiently.
